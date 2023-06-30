@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <table class="table border-success table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Número</th>
+        <th scope="col">Descripción</th>
+      </tr>
+    </thead>
+
+    <tbody
+      *ngFor="
+        let memo of memos | paginate : { itemsPerPage: 6, currentPage: p }
+      "
+    >
+      <td>
+        <h6>{{ memo.numero }}</h6>
+      </td>
+
+      <td>
+        <h6>
+          <a href="{{ memo.ruta }}">{{ memo.descripcion }}</a>
+        </h6>
+      </td>
+    </tbody>
+  </table>
+</div>
+<div id="paginacion" class="d-flex justify-content-center">
+  <!-- <div class="d-flex justify-content-center"> -->
+  <pagination-controls
+    previousLabel="Anterior"
+    nextLabel="Próxima"
+    (pageChange)="p = $event"
+  ></pagination-controls>
+</div>
+
+<!-- </div> -->

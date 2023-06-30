@@ -1,0 +1,17 @@
+footer{
+    
+  bottom: 0;
+  width: 100%;
+ background-color: #007F90;
+  margin-top: auto;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+section{
+  margin-top: 2%;
+}

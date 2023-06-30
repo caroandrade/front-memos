@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <h6>Buscar</h6>
+
+    <form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+      <button
+        class="btn btn-outline-secondary"
+        (click)="show = !show"
+        title="palabra | n° de memo"
+      >
+        {{ show ? "N° de Memo" : "Palabra" }}
+      </button>
+
+      <br />
+      <div *ngIf="show">
+        <label class="col sm-3 col-for-label">Palabra</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar por palabra"
+          formControlName="palabra"
+        />
+
+        <span class="form-text text-danger" *ngIf="campoEsValido('palabra')">
+          deben ser caracteres alfanuméricos
+        </span>
+      </div>
+
+      <div *ngIf="!show">
+        <label class="col sm-3 col-for-label">N° de Memo</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Buscar por número de Memo"
+          formControlName="numero"
+        />
+        <span class="form-text text-danger" *ngIf="campoEsValido('numero')">
+          El N° de Memo de ser mayor a 0
+        </span>
+      </div>
+
+      <div id="boton">
+        <button type="submit" class="btn btn-outline-secondary float-end">
+          Buscar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- <div class="d-flex justify-content-center">
+  <table class="table border-success table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Número</th>
+        <th scope="col">Descripción</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let memo of memos">
+      <td>
+        <h6>{{ memo.numero }}</h6>
+      </td>
+
+      <td>
+        <h6>
+          <a href="{{ memo.ruta }}">{{ memo.descripcion }}</a>
+        </h6>
+      </td>
+    </tbody>
+  </table>
+</div> -->

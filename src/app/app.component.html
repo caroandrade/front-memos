@@ -1,0 +1,26 @@
+<main>
+  <header>
+    <app-barra></app-barra>
+  </header>
+
+  <section class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <app-busqueda></app-busqueda>
+      </div>
+
+      <div class="col-sm-10">
+        <app-memos [memos]="Memos"> </app-memos>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="text-center p-4">
+      © 2023 Equipo de Desarrollo-Portal Educativo www.mendoza.edu.ar
+    </div>
+  </footer>
+</main>
+
+<router-outlet></router-outlet>
