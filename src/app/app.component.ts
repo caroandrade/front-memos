@@ -9,5 +9,5 @@ import { Memo } from './interfaces/interface';
 export class AppComponent {
   title = 'Memoramdums';
 
-  @Input() Memos:Memo[]=[]
+  memos:Memo[]=[]
 }

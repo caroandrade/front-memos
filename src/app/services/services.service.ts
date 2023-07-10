@@ -25,12 +25,12 @@ export class ServicesService {
 //terminar de armar la busqueda por palabra
  buscarPalabra(termino:string):Observable<Memo[]>{
 
-  const respuesta = this.http.get<Memo[]>(`${this.apiUrl}/texto/${termino}`);
+   const respuesta = this.http.get<Memo[]>(`${this.apiUrl}/texto/${termino}`);
 
     
 
   return respuesta
-     
+    
  }
 
 //terminar de armar la busqueda por palabra

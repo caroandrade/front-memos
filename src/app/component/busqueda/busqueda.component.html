@@ -40,32 +40,20 @@
       </div>
 
       <div id="boton">
-        <button type="submit" class="btn btn-outline-secondary float-end">
+        <button
+          type="submit"
+          class="btn btn-outline-secondary float-end"
+          routerLink="/resultado"
+        >
           Buscar
+        </button>
+
+        <button (click)="limpiar()" class="btn btn-outline-secondary float-end">
+          limpiar busqueda
         </button>
       </div>
     </form>
   </div>
 </div>
-<!-- <div class="d-flex justify-content-center">
-  <table class="table border-success table-sm">
-    <thead>
-      <tr>
-        <th scope="col">Número</th>
-        <th scope="col">Descripción</th>
-      </tr>
-    </thead>
-
-    <tbody *ngFor="let memo of memos">
-      <td>
-        <h6>{{ memo.numero }}</h6>
-      </td>
-
-      <td>
-        <h6>
-          <a href="{{ memo.ruta }}">{{ memo.descripcion }}</a>
-        </h6>
-      </td>
-    </tbody>
-  </table>
-</div> -->
+<app-listado [memosHijo]="memos"></app-listado>
+{{ miFormulario.value | json }}

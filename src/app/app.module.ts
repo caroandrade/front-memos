@@ -12,6 +12,7 @@ import { BusquedaComponent } from './component/busqueda/busqueda.component';
 import { BarraComponent } from './component/barra/barra.component';
 import { MemosComponent } from './component/memos/memos.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListadoComponent } from './component/listado/listado.component';
 
 
 
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     BusquedaComponent,
     BarraComponent,
-    MemosComponent
+    MemosComponent,
+    ListadoComponent
   ],
   imports: [
     BrowserModule,

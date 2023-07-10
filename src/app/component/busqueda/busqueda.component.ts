@@ -4,39 +4,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Memo } from 'src/app/interfaces/interface';
 import { ServicesService } from 'src/app/services/services.service';
 
+
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
   styleUrls: ['./busqueda.component.css']
 })
-export class BusquedaComponent {
+export class BusquedaComponent  {
 
   memos!: Memo[];
   
 
   show = true;
-  miFormulario: FormGroup = this.fb.group({
-    palabra       : [ , [Validators.required, Validators.pattern('[a-zA-ZáíéóúÁEÍÓÚa-zA-Z]*')],],
-    numero      : [ , [Validators.required, Validators.min(0)]],
+
+  miFormulario: FormGroup = this.fb.group({ //identifico al formulario 
+    'palabra'     :   [ , [Validators.required, Validators.pattern('[a-zA-ZáíéóúÁÉÍÓÚ]*')],], //especificamos los input del formulario
+    'numero'      :   [ , [Validators.required, Validators.min(0)]],
    
 
 
   })
   constructor( private fb: FormBuilder, private busquedaService: ServicesService) { }
 
- ngOnInit() {
-   
-     
-        
-      this.miFormulario.reset({
-        palabra      : "palabra",
-        numero    : 0
-       
-      })
 
-      
+  
 
- }
+
+ 
 campoEsValido(campo: string){
   return this.miFormulario.controls[campo].errors
      && this.miFormulario.controls[campo].touched;
@@ -44,39 +38,13 @@ campoEsValido(campo: string){
 }
 
 
- 
-
-guardar(){
-    if (this.miFormulario.invalid){
-      this.miFormulario.markAllAsTouched();//evalua si todos los campos del formulario fueron tocado
-    
-      
-      return; 
-    }else {
-      const dato = this.miFormulario.get('palabra')?.value;
-    
-    if(dato !="" || null){
-     this.buscarPal(dato);
-
-    }
-    const  datoNumero= this.miFormulario.get('numero')?.value;
-    if(datoNumero !="" || null){
-      this.buscarNum(datoNumero);
-
-    }
-
-    
-    }this.miFormulario.reset();//vuelve al formulario en blanco
-
-    
-    
-}
 buscarPal(termino:string){
   
   
   this.busquedaService.buscarPalabra(termino).subscribe( memo=>{
      this.memos=memo
     return this.memos;
+    
   });
   }
  
@@ -87,5 +55,44 @@ buscarPal(termino:string){
       return this.memos;
     });
     }
- 
-}
+    limpiar(){
+      this.miFormulario.reset();
+      
+    }
+
+    guardar(){
+      
+      //  if (this.miFormulario.invalid){
+      //  this.miFormulario.markAllAsTouched();//evalua si todos los campos del formulario fueron tocado
+      // console.log(this.miFormulario.value)
+        
+      //    return; 
+      //  }
+      
+      const dato = this.miFormulario.get('palabra')?.value;
+      const  datoNumero= this.miFormulario.get('numero')?.value;
+      
+      if(dato !="" && datoNumero == null ){
+       this.buscarPal(dato);
+  
+      }
+     
+      if(datoNumero !="" && dato == null ){
+        this.buscarNum(datoNumero);
+  
+      
+      
+
+  
+      
+      }
+     
+  
+      
+      
+  }
+  
+   
+  }
+            
+

@@ -10,9 +10,9 @@ import { Memo } from 'src/app/interfaces/interface';
 })
 export class MemosComponent implements OnInit {
   
-@Input() memos:Memo[]=[];
+
   
-  // memos: Memo[]= [];
+  memos: Memo[]= [];
   
   p: number = 1;
 

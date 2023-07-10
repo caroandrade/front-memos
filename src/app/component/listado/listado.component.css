@@ -1,0 +1,14 @@
+table {
+    width: 80%;
+    height: 300px;
+   
+  }
+ 
+  #paginacion{
+    margin-top: auto;
+  }
+  td{
+    border: solid 2px #007f90;
+
+    }
+  
